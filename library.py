@@ -8,7 +8,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
-df = open('data.json',)
+df = open('../data.json',)
 data = json.load(df)
 df.close()
 
@@ -36,6 +36,8 @@ def caesar(text, step, alphabets):
     joined_shifted_alphabets = ''.join(shifted_alphabets)
     table = str.maketrans(joined_aphabets, joined_shifted_alphabets)
     return text.translate(table)
+
+alphabets = (string.ascii_lowercase, string.ascii_uppercase, string.digits, string.punctuation)
 
 def lib(days):
 
@@ -92,8 +94,6 @@ def lib(days):
     userPath = "//input[@id='ssousername']"
     userForm = driver.find_element("xpath", userPath)
     userForm.send_keys(USER)
-
-    alphabets = (string.ascii_lowercase, string.ascii_uppercase, string.digits, string.punctuation)
 
     enterPass = caesar(PASS, 7, alphabets)
 
